@@ -1,0 +1,281 @@
+
+html{
+    font-family: 'Ubuntu', sans-serif;
+}
+nav {
+    list-style-type: none;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+
+header{
+    border-bottom: 1px solid lightgrey;
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.541);
+    z-index: 50;
+}
+
+header > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container > img {
+    height: 50px;
+}
+
+#sm-container{
+    list-style: none;
+    display: flex;
+    /* gap: column-gap row-gap */
+    column-gap: 5px;
+
+}
+#sm-container li {
+    padding: 10px;
+    font-size: 1.5rem;    /* to change icon size */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#sm-container li:hover{
+    cursor: pointer;
+    background-color: lightgrey;
+}
+
+.fa-facebook{
+    color: rgb(128, 158, 240);
+}
+.fa-twitter{
+    color: rgb(128, 158, 240);
+}
+.fa-youtube{
+    color: rgb(226, 29, 62);
+}
+.fa-square-instagram{
+    color: rgb(238, 139, 230);
+}
+.fa-facebook-messenger{
+    color: rgb(226, 148, 233);
+}
+
+@media all and (max-width: 1023px){
+
+    header{
+        position: relative;
+    }
+    header > .container{
+        flex-direction: column;
+        padding-bottom: 5px;
+    }
+}
+
+/* Navigation */
+
+/* body > section > .container {
+    display: flex;
+} */
+#main-nav{
+    /* flex-basis: 200px;
+    flex-shrink: 0; */
+    width: 250px;
+    border-right: 1px solid lightgrey ;
+    border-left: 1px solid lightgrey;
+    /* background-color: aqua; */
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    z-index: 40;
+ 
+
+}
+#main-nav nav{
+    min-width: 250px;
+}
+#main-nav li:hover{
+   cursor: pointer;
+   background-color: lightgrey;
+}
+#main-nav li{
+    padding: 10px;
+    border-bottom: 1px solid lightgrey;
+}
+#main-nav li.drop-down{
+    /* background-color: yellow; */
+    position: relative;
+}
+#main-nav li.drop-down >nav{
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: white;
+    border: 1px solid grey;
+    box-shadow: 0 0 4px 0px black;
+}
+
+@media all and (min-width: 1024px) {
+
+    #main-nav li.drop-down::after{
+        content: "";
+        display: block;
+        position: absolute;
+        right: 10px;
+        height: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        border-top: 8px solid transparent;
+        border-left: 8px solid red;
+        border-bottom: 8px solid transparent;
+        
+    }
+    #main-nav li.drop-down:hover::after{
+        border-left-color: black;
+    }
+}
+#main-nav li.drop-down:hover >nav{
+    display: block;
+}
+
+
+
+@media all and (max-width: 1023px){
+    #main-nav{
+
+        position: relative;
+        border-right: none;
+        border-left: none;
+        text-align: center;
+        width: 100%;
+        top: unset;
+        z-index: 55; 
+    }
+    #main-nav li.drop-down > nav{
+        position: relative;
+        /* display: block; */
+        left: unset;
+        top: 10px;
+        border: none;
+        box-shadow: unset;
+        width: 100%;
+
+    }
+    #main-nav li.drop-down{
+        padding: unset;
+        padding-top: 10px;
+    }
+}
+
+/* Main */
+
+main{
+    margin-left: 250px;
+    padding: 10px;
+    border-right: 1px solid lightgrey;
+    
+}
+
+
+#slider{
+    height: 450px;
+    /* background-color: yellow; */
+    overflow-x: hidden;
+    
+}
+#slider-wrapper{
+    position: relative;
+    width: 400%;  /* relative to the slider's width*/
+    height: 100%;
+
+    animation-name: slide-ani;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+#slider .slide{
+    width: calc(100% / 4);  /* one slide width, relative to the slider-wrapper's width*/
+    height: 100%;
+    float: left;
+    background-position: center;
+    background-size: cover;
+}
+#slide-1{
+    background-image: url(/img/1.jpeg);
+
+}
+#slide-2{
+    background-image: url(/img/2.jpg);
+
+}
+#slide-3{
+    background-image: url(/img/3.jpg);
+
+}
+#slide-4{
+    background-image: url(/img/4.jpg);
+}
+
+@keyframes slide-ani{
+    form,to{
+        left: 0;
+    }
+    20%,25%{
+        left: -100%;
+    }
+    45%,50%{
+        left: -200%;
+    }
+    70%,75%{
+        left: -300%;
+    }
+}
+
+@media all and (max-width: 1023px){
+    main{
+        margin-left: unset;
+    }
+}
+
+@media all and (max-width: 575px){
+    #slider {
+        display: none;
+    }
+}
+#main-content{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+#main-content > div:first-child{
+    padding: 5px 50px;
+}
+#main-content > div:last-child img{
+    border-radius: 15px;
+    box-shadow: 1px 0px 9px red;
+}
+
+main > p{
+    text-align: center;
+}
+
+@media all and (max-width: 1023px){
+    #main-content > div:last-child{
+        display: none;
+    }
+}
+
+/* footer */
+
+footer{
+    text-align: center;
+    padding: 10px ;
+    font-weight: bold;
+    border-top: 1px solid lightgrey;
+}
